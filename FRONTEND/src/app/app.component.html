@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-primary">
+  <a style="color: white; font-weight:400 " class="navbar-brand float-left" href="#">Schedular</a>
+</nav>
+<div class="container h-200">
+  <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-10 col-md-8 col-lg-6">
+          <!-- Form -->
+          <form class="mt-5" [formGroup]="timerForm" >
+              <h1 style="color: #37506b;font-size:bold;font-size:24px;">Set your Timer</h1>
+              <!-- Input fields -->
+              <div class="form-group" >
+                <label class="form-lable">Timmer:</label>
+                <input type="text" required formControlName = "timer" class="form-control" class="form-control" id="timer" placeholder="HH:MM:SS" name="timer">
+              </div>
+              <div class="form-group">
+                  <label class="form-lable">Requested By:</label>
+                  <input type="text"  required formControlName = "requested_by" class="form-control" id="requested_by" placeholder="Name..." name="requested_by">
+              </div>
+              <button type="submit"
+                [disabled]="!timerForm.valid"
+                [ngClass]="[!timerForm.valid ? 'not-allowed' : 'cursor-pointer']" class="btn btn-md btn-customized" style="background-color: #44cbf8" (click)="setTimer()">Submit</button>
+                <!-- End input fields -->
+          </form>
+          <!-- Form end -->
+      </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
